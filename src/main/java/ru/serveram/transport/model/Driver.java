@@ -1,6 +1,6 @@
 package ru.serveram.transport.model;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 /**
  * Created by nakoryakov on 09.08.16.
@@ -8,17 +8,23 @@ import javax.persistence.Entity;
  */
 @Entity
 public class Driver {
-    //TODO Добавить и аннотировать поля
-    private long id;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String  name;
-    private long vehicleID;
 
+    @OneToMany
+    private Long vehicleID;
 
-    public long getId() {
+    public Driver() {
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -30,11 +36,11 @@ public class Driver {
         this.name = name;
     }
 
-    public long getVehicleID() {
+    public Long getVehicleID() {
         return vehicleID;
     }
 
-    public void setVehicleID(long vehicleID) {
+    public void setVehicleID(Long vehicleID) {
         this.vehicleID = vehicleID;
     }
 }

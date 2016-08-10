@@ -1,6 +1,9 @@
 package ru.serveram.transport.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.util.Date;
 
 /**
@@ -10,21 +13,26 @@ import java.util.Date;
 @Entity
 public class Order {
 
-    private long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private Date createDate;
     private Date closeDate;
-    private long consumerID;
-    private long driverID;
-    private long addressFromID;
-    private long addressToID;
-    private boolean isAppointed;
-    private double cost;
+    private Long consumerID;
+    private Long driverID;
+    private Long addressFromID;
+    private Long addressToID;
+    private Boolean isAppointed;
+    private Double cost;
 
-    public long getId() {
+    public Order() {
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -44,53 +52,51 @@ public class Order {
         this.closeDate = closeDate;
     }
 
-    public long getConsumerID() {
+    public Long getConsumerID() {
         return consumerID;
     }
 
-    public void setConsumerID(long consumerID) {
+    public void setConsumerID(Long consumerID) {
         this.consumerID = consumerID;
     }
 
-    public long getDriverID() {
+    public Long getDriverID() {
         return driverID;
     }
 
-    public void setDriverID(long driverID) {
+    public void setDriverID(Long driverID) {
         this.driverID = driverID;
     }
 
-    public long getAddressFromID() {
+    public Long getAddressFromID() {
         return addressFromID;
     }
 
-    public void setAddressFromID(long addressFromID) {
+    public void setAddressFromID(Long addressFromID) {
         this.addressFromID = addressFromID;
     }
 
-    public long getAddressToID() {
+    public Long getAddressToID() {
         return addressToID;
     }
 
-    public void setAddressToID(long addressToID) {
+    public void setAddressToID(Long addressToID) {
         this.addressToID = addressToID;
     }
 
-    public boolean isAppointed() {
+    public Boolean isAppointed() {
         return isAppointed;
     }
 
-    public void setAppointed(boolean appointed) {
+    public void setAppointed(Boolean appointed) {
         isAppointed = appointed;
     }
 
-    public double getCost() {
+    public Double getCost() {
         return cost;
     }
 
-    public void setCost(double cost) {
+    public void setCost(Double cost) {
         this.cost = cost;
     }
-
-    //TODO Добавить и аннотировать поля
 }
