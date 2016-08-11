@@ -24,6 +24,7 @@ public class Order {
     private Long addressToID;
     private Boolean isAppointed;
     private Double cost;
+    private Long statusID;
 
     public Order() {
     }
