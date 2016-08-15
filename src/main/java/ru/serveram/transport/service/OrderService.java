@@ -7,7 +7,8 @@ import java.util.List;
 /**
  * Created by nakoryakov on 10.08.16.
  */
-public interface OrderService {
+public interface OrderService
+{
     Long closeOrder(Long id);
 
     List<Order> getOpenedOrders();

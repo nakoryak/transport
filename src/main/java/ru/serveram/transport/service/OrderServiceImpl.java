@@ -28,6 +28,7 @@ public class OrderServiceImpl implements OrderService {
         return orderRepository.findAllWhereCloseDateIsNull();
     }
 
+    //Зачем возвращать Id
     public Long createOrder(Order order) {
         Order savedOrder = orderRepository.save(order);
         return savedOrder.getId();
