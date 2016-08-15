@@ -25,6 +25,7 @@ public class Order implements Serializable {
     private Long addressToID;
     private Boolean isAppointed;
     private Double cost;
+    private Long statusID;
 
     public Order() {
     }
