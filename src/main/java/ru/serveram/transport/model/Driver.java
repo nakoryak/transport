@@ -1,6 +1,7 @@
 package ru.serveram.transport.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by nakoryakov on 09.08.16.
@@ -15,7 +16,7 @@ public class Driver {
     private String  name;
 
     @OneToMany
-    private Long vehicleID;
+    private List<Vehicle> vehicles;
 
     public Driver() {
     }
@@ -36,11 +37,11 @@ public class Driver {
         this.name = name;
     }
 
-    public Long getVehicleID() {
-        return vehicleID;
+    public List<Vehicle> getVehicles() {
+        return vehicles;
     }
 
-    public void setVehicleID(Long vehicleID) {
-        this.vehicleID = vehicleID;
+    public void setVehicleID(List<Vehicle> vehicles) {
+        this.vehicles = vehicles;
     }
 }

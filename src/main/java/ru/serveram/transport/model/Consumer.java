@@ -1,6 +1,7 @@
 package ru.serveram.transport.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by nakoryakov on 09.08.16.
@@ -15,7 +16,7 @@ public class Consumer {
     private String name;
 
     @OneToMany
-    private Long documentID;
+    private List<Document> documents;
 
     public Consumer() {
     }
@@ -36,11 +37,11 @@ public class Consumer {
         this.name = name;
     }
 
-    public Long getDocumentID() {
-        return documentID;
+    public List<Document> getDocuments() {
+        return documents;
     }
 
-    public void setDocumentID(Long documentID) {
-        this.documentID = documentID;
+    public void setDocuments(List<Document> documents) {
+        this.documents = documents;
     }
 }
