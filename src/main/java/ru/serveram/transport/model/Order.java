@@ -1,31 +1,44 @@
 package ru.serveram.transport.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
+
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by nakoryakov on 09.08.16.
+ * Edit by pavel.klevakin on 10.09.16
  * Ентити заказа
  */
 @Entity
+@Table(name = "order")
 public class Order implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    @Column(name = "create_date")
     private Date createDate;
+    @Column(name = "close_date")
     private Date closeDate;
+    @Column(name = "consumer_ID")
     private Long consumerID;
+    @Column(name = "driver_ID")
     private Long driverID;
+    @Column(name = "address_from_ID")
     private Long addressFromID;
+    @Column(name = "address_to_ID")
     private Long addressToID;
+    @Column(name = "is_Appointed")
     private Boolean isAppointed;
+    @Column(name = "cost")
     private Double cost;
+    @Column(name = "status_ID")
     private Long statusID;
+
+
 
     public Order() {
     }
@@ -101,4 +114,10 @@ public class Order implements Serializable {
     public void setCost(Double cost) {
         this.cost = cost;
     }
+
+    public Boolean getAppointed() { return isAppointed; }
+
+    public Long getStatusID() { return statusID; }
+
+    public void setStatusID(Long statusID) { this.statusID = statusID; }
 }

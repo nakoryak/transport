@@ -5,6 +5,6 @@ import javax.persistence.Entity;
 /**
  * Created by nakoryakov on 15.08.16.
  */
-@Entity
+//@Entity
 public class Document {
 }

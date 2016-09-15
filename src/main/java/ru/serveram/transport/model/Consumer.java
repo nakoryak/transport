@@ -15,8 +15,9 @@ public class Consumer {
     private Long id;
     private String name;
 
-    @OneToMany
-    private List<Document> documents;
+    //todo: пока документ не энтити
+    //@OneToMany
+    //private List<Document> documents;
 
     public Consumer() {
     }
@@ -37,11 +38,11 @@ public class Consumer {
         this.name = name;
     }
 
-    public List<Document> getDocuments() {
-        return documents;
-    }
+    //public List<Document> getDocuments() {
+    //    return documents;
+    //}
 
-    public void setDocuments(List<Document> documents) {
-        this.documents = documents;
-    }
+    //public void setDocuments(List<Document> documents) {
+    //    this.documents = documents;
+    //}
 }

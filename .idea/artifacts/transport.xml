@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="transport">
+    <output-path>$PROJECT_DIR$/out/artifacts/transport</output-path>
+    <root id="root">
+      <element id="module-output" name="transport" />
+    </root>
+  </artifact>
+</component>

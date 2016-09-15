@@ -3,11 +3,13 @@ package ru.serveram.transport.model;
 import javax.persistence.*;
 import java.util.List;
 
+
 /**
  * Created by nakoryakov on 09.08.16.
  * Ентити водителя
  */
 @Entity
+@Table(name="drivers")
 public class Driver {
 
     @Id

@@ -1,33 +1,49 @@
 package ru.serveram.transport.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import ru.serveram.transport.model.Order;
+import ru.serveram.transport.service.OrderService;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
- * Created by nakoryakov on 09.08.16.
+ * Pavel Klevakin
  */
-public interface OrderController {
+@RestController
+@RequestMapping(value="/order")
+public class OrderController{
 
-    /**
-     * Получаем список открытых заявок, на которые не назначен исполнитель
-     * @return
-     */
-    List<Order> getOpenedOrders();
+    @Autowired
+    private OrderService orderService;
 
-    /**
-     * Закрываем заказ, помечаем его исполненым, надо додумать, что делать с заказами, которые вообще не были выполнены
-     * @param id Id - заказа
-     * @return
-     */
-    Long closeOrder(Long id);
+    @RequestMapping(value="/opened", method = RequestMethod.GET)
+    public List<Order> getOpenedOrders() {
+        return orderService.getOpenedOrders();
+    }
 
-    /**
-     *
-     * @param order Передавать желательно DTO, надо додумать.
-     * @return
-     */
-    Long createOrder(Order order);
+    @RequestMapping(value = "/close", method = RequestMethod.POST)
+    public Long closeOrder(Long id) {
+        return orderService.closeOrder(id);
+    }
 
+    //TODO заменить order на DTO
+    @RequestMapping(value = "/create", method = RequestMethod.POST)
+    public Long createOrder(Order order) {
+        return orderService.createOrder(order);
+    }
+
+    @RequestMapping(value = "/order", method = RequestMethod.GET)
+    public Order order()
+    {
+        Order order = new Order();
+        order.setAddressFromID(new Long(11111));
+        return order;
+    }
 
 }
