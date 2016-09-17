@@ -12,5 +12,8 @@
 </head>
 <body>
     Test
+<a href="/order/close?id=1">close</a>
+<a href="/order/opened">opened</a>
+<a href="/1.html">1</a>
 </body>
 </html>

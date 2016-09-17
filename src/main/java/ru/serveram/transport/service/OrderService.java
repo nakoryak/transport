@@ -13,5 +13,7 @@ public interface OrderService
 
     List<Order> getOpenedOrders();
 
+    List<Order> getClosedOrders();
+
     Long createOrder(Order order);
 }

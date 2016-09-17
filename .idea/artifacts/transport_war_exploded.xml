@@ -39,7 +39,6 @@
           <element id="library" level="project" name="Maven: org.jboss.spec.javax.interceptor:jboss-interceptors-api_1.1_spec:1.0.0.Beta1" />
           <element id="library" level="project" name="Maven: javax.annotation:jsr250-api:1.0" />
           <element id="library" level="project" name="Maven: javax.inject:javax.inject:1" />
-          <element id="library" level="project" name="Maven: org.postgresql:postgresql:9.4.1209" />
           <element id="library" level="project" name="Maven: mysql:mysql-connector-java:6.0.3" />
           <element id="library" level="project" name="Maven: c3p0:c3p0:0.9.0.4" />
           <element id="library" level="project" name="Maven: org.mockito:mockito-all:1.10.19" />

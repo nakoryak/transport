@@ -27,8 +27,9 @@ public class OrderController{
         return orderService.getOpenedOrders();
     }
 
-    @RequestMapping(value = "/close", method = RequestMethod.POST)
-    public Long closeOrder(Long id) {
+    //todo: логика работы
+    @RequestMapping(value = "/close")
+    public Long closeOrder(@RequestParam(value = "id") Long id) {
         return orderService.closeOrder(id);
     }
 

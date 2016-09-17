@@ -4,6 +4,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import ru.serveram.transport.model.Order;
 import ru.serveram.transport.repository.OrderRepository;
 
@@ -17,23 +18,31 @@ import java.util.List;
  * Created by nakoryakov on 10.08.16.
  */
 @Service
+@Transactional
 public class OrderServiceImpl implements OrderService {
 
     @Autowired
     private SessionFactory sessionFactory;
 
-    //todo: костыль, логики ноль
-    public Long closeOrder(Long id) {
-        /*Order order = orderRepository.findOne(id);
-        order.setCloseDate(new Date());
-        orderRepository.save(order);
-        return order.getId();*/
-        return id;
+    public List<Order> getClosedOrders() {
+        Session session = sessionFactory.getCurrentSession();
+        List<Order> result = session.createQuery("SELECT orders FROM Order orders where orders.closeDate is not null", Order.class).getResultList();
+        return result.isEmpty() ? null : result; //в лучших традициях LSD
     }
 
+    //todo: логики ноль
+    public Long closeOrder(Long id) {
+        Session session = sessionFactory.getCurrentSession();
+        Order order = session.get(Order.class, id);
+        order.setCloseDate(new Date());
+        session.save(order);
+        return order.getId();
+    }
+    //
     public List<Order> getOpenedOrders() {
         Session session = sessionFactory.getCurrentSession();
-        return session.createQuery("FROM Order", Order.class).getResultList();
+        List<Order> result = session.createQuery("SELECT orders FROM Order orders where orders.closeDate is null", Order.class).getResultList();
+        return result.isEmpty() ? null : result; //в лучших традициях LSD
     }
 
     //Зачем возвращать Id

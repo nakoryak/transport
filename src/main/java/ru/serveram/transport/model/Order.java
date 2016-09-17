@@ -12,7 +12,7 @@ import java.util.Date;
  * Ентити заказа
  */
 @Entity
-@Table(name = "order")
+@Table(name = "orders")
 public class Order implements Serializable {
 
     @Id
